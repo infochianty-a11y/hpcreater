@@ -910,3 +910,33 @@ input:focus, select:focus, textarea:focus {
     .header__nav li { margin: 0; margin-bottom: 30px; }
     .header__nav a { font-size: 1.2rem; color: #fff; }
 }
+/* =========================================
+   ▼▼ PCとスマホで改行を変える設定（追記） ▼▼
+   ========================================= */
+
+/* PCだけで改行させたい時に使うクラス */
+.pc-br {
+    display: block; /* PCでは改行として機能する */
+}
+
+/* スマホだけで改行させたい時に使うクラス */
+.sp-br {
+    display: none;  /* PCでは隠す（改行しない） */
+}
+
+/* スマホ画面（幅767px以下）になった時の動き */
+@media (max-width: 767px) {
+    .pc-br {
+        display: none;   /* スマホでは隠す（改行しない） */
+    }
+    .sp-br {
+        display: block;  /* スマホでは出現する（改行する） */
+    }
+}
+/* スマホの時だけ、タイトルの文字サイズを少し小さくする調整 */
+@media (max-width: 767px) {
+    .fv__title {
+        font-size: 2.0rem; /* PCは3.5remなので、少し小さくする */
+        line-height: 1.4;  /* 行間を少し広げて読みやすく */
+    }
+}

@@ -1,9 +1,22 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    
     <title>Chianty Creative | 白金の現役サロンオーナーによるWeb制作</title>
+    <meta name="description" content="東京・白金の現役エステティシャンが代表を務めるWeb制作サービス。サロンオーナーの気持ちがわかる「第2の名刺」Webサイトをご提案。AI活用で高品質・低価格を実現。">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:site_name" content="Chianty Creative">
+    <meta property="og:title" content="その名刺、スマホで見せられますか？ | Chianty Creative">
+    <meta property="og:description" content="現役サロンオーナーが作る、あなたの信頼を正しく伝えるWebサイト制作サービス。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/"> <meta property="og:image" content="https://example.com/ogp.jpg">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -93,8 +106,8 @@
                     代表者プロフィール
                 </h2>
                 <div class="profile__grid">
-                    <div class="hobohone.png">
-                        <div class="img-placeholder">Your Photo</div>
+                    <div class="profile__img">
+                        <img src="hobome.png" alt="Chianty Creative代表">
                     </div>
                     <div class="profile__text">
                         <h3>
@@ -208,7 +221,7 @@
             </div>
         </section>
 
-        <<section id="price" class="price section-padding">
+        <section id="price" class="price section-padding">
             <div class="container">
                 <h2 class="section-title">
                     <span>PRICE</span>
@@ -289,7 +302,7 @@
                     3営業日以内に代表より返信いたします。
                 </p>
 
-                <form action="#" method="POST" class="contact__form">
+                <form action="https://formspree.io/f/xmqbdwlz" method="POST" class="contact__form">
                     <div class="form-group">
                         <label for="name">お名前 <span class="required">必須</span></label>
                         <input type="text" id="name" name="name" placeholder="例）白金 花子" required>
@@ -348,19 +361,33 @@
         const hamburger = document.getElementById('js-hamburger');
         const nav = document.getElementById('js-nav');
 
-        // ボタンがクリックされたら
         hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active'); // ボタンを×印に変える
-            nav.classList.toggle('active');       // メニューを表示する
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
         });
 
-        // メニュー内のリンクがクリックされたら
         nav.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
-                hamburger.classList.remove('active'); // ボタンを元に戻す
-                nav.classList.remove('active');       // メニューを閉じる
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
             });
         });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Chianty Creative",
+      "description": "白金の現役サロンオーナーによるWeb制作・LP制作サービス。",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Minato-ku",
+        "addressRegion": "Tokyo",
+        "addressCountry": "JP"
+      },
+      "priceRange": "49,800円〜"
+    }
     </script>
 </body>
 </html>

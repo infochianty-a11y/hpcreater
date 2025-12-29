@@ -1,0 +1,877 @@
+/* =========================================
+   共通設定
+   ========================================= */
+/* =========================================
+   共通設定（ナチュラルVer.）
+   ========================================= */
+:root {
+    /* ▼▼ ここだけ変えました ▼▼ */
+    --color-primary: #6B8E23;    /* オリーブグリーン（メイン） */
+    --color-accent: #D2691E;     /* チョコレートブラウン（アクセント） */
+    --color-base: #FAF9F6;       /* オフホワイト（背景） */
+    --color-text-main: #554C41;  /* 焦げ茶色（文字） */
+    --color-text-light: #FFFFFF; /* 白文字 */
+    /* ▲▲ ここまで ▲▲ */
+    
+    --font-family-base: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    --container-width: 1000px;
+    --header-height: 80px;
+}
+
+/* ついでにボタンを少し丸くして優しさを出す（任意） */
+.btn--main {
+    border-radius: 50px; /* まん丸にする */
+    background-color: var(--color-accent);
+}
+/* 背景の「bg-sub」も、グレーではなく薄いベージュにする */
+.bg-sub {
+    background-color: #F5F5DC; /* ベージュ */
+}
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--color-text-main);
+    margin: 0;
+    padding-top: var(--header-height);
+}
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+.sp-only { display: none; }
+@media (max-width: 767px) { .sp-only { display: block; } }
+
+/* =========================================
+   共通パーツ：ボタン
+   ========================================= */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-align: center;
+    line-height: 1.4;
+}
+.btn--header {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+.btn--header:hover {
+    background-color: var(--color-accent);
+}
+.btn--main {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    padding: 16px 40px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(197, 165, 114, 0.4);
+}
+.btn--main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(197, 165, 114, 0.6);
+}
+.btn--large {
+    min-width: 300px;
+}
+
+/* =========================================
+   共通：セクションタイトルの装飾（金色の線）
+   ========================================= */
+.section-title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--color-primary);
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 20px;
+}
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.section-title span {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+}
+
+/* =========================================
+   1. ヘッダー
+   ========================================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+}
+.header__container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-family: serif;
+}
+.header__nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.header__nav li {
+    margin-left: 30px;
+}
+.header__nav a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+.header__nav a:hover {
+    color: var(--color-accent);
+}
+
+/* =========================================
+   2. ファーストビュー（FV）
+   ========================================= */
+.fv {
+    position: relative;
+    height: 600px;
+    min-height: 60vh;
+    background-image: url('party.png'); /* 画像ファイル名 */
+    background-size: cover;
+    background-position: center right;
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+}
+.fv__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(26, 43, 76, 0.8), rgba(26, 43, 76, 0.4));
+}
+.fv__container {
+    position: relative;
+    z-index: 2;
+}
+.fv__content {
+    max-width: 600px;
+}
+.fv__title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+.fv__lead {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 32px;
+    font-weight: 500;
+}
+.fv__lead strong {
+    color: var(--color-accent);
+    font-size: 1.2rem;
+}
+.fv__tags {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+}
+.fv__tags li {
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid var(--color-accent);
+    padding: 8px 16px;
+    margin-right: 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--color-accent);
+}
+@media (max-width: 767px) {
+    .header__nav { display: none; }
+    .header__logo { font-size: 1.2rem; }
+    .btn--header { padding: 8px 16px; font-size: 0.8rem; }
+    .fv { height: 600px; background-position: center; text-align: center; }
+    .fv__overlay { background: rgba(26, 43, 76, 0.6); }
+    .fv__content { margin: 0 auto; }
+    .fv__title { font-size: 2.2rem; }
+    .fv__lead { font-size: 1rem; text-align: left; display: inline-block; }
+    .fv__tags { justify-content: center; flex-wrap: wrap; }
+    .fv__tags li { margin-bottom: 8px; }
+    .btn--main { width: 100%; padding: 16px; }
+}
+
+/* =========================================
+   3. 導入・共感セクション
+   ========================================= */
+.section-padding { padding: 100px 0; }
+.intro { text-align: center; background-color: var(--color-base); }
+.intro__content p { font-size: 1.1rem; line-height: 2; margin-bottom: 30px; }
+.intro__message { font-size: 1.4rem; font-weight: bold; color: var(--color-primary); margin: 40px 0; }
+.intro__message strong { background: linear-gradient(transparent 70%, #fceebb 70%); padding: 0 4px; }
+.pc-only { display: block; }
+
+/* 導入セクションのデザイン（枠付き） */
+.intro .container {
+    background-color: #fff;
+    border: 2px solid #f0f0f0;
+    padding: 60px 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    max-width: 800px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+}
+@media (max-width: 767px) { .pc-only { display: none; } }
+
+/* =========================================
+   4. プロフィールセクション
+   ========================================= */
+.bg-sub { background-color: #F8F9FA; }
+.profile__grid { display: flex; align-items: center; gap: 60px; }
+.profile__img { flex: 1; max-width: 400px; }
+.profile__img img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.img-placeholder {
+    width: 100%; height: 400px; background-color: #ccc; display: flex;
+    justify-content: center; align-items: center; color: #666; font-weight: bold; border-radius: 8px;
+}
+.profile__text { flex: 1.5; }
+.profile__text h3 {
+    font-size: 1.5rem; color: var(--color-primary); margin-bottom: 30px; line-height: 1.5;
+    border-bottom: 2px solid var(--color-accent); padding-bottom: 20px;
+}
+.profile__text p { margin-bottom: 24px; text-align: justify; }
+@media (max-width: 767px) {
+    .section-padding { padding: 60px 0; }
+    .intro__message { font-size: 1.2rem; }
+    .profile__grid { flex-direction: column; gap: 30px; }
+    .profile__img { width: 100%; max-width: 100%; }
+    .img-placeholder { height: 300px; }
+    .profile__text h3 { font-size: 1.3rem; }
+}
+
+/* =========================================
+   5. 選ばれる3つの理由（USP）
+   ========================================= */
+.usp { background-color: var(--color-primary); color: #fff; } /* ネイビー背景 */
+.usp .section-title { color: #fff; }
+.usp__list { display: flex; justify-content: space-between; gap: 30px; margin-top: 60px; }
+.usp__item {
+    flex: 1; background-color: #fff; border: 1px solid #eee; padding: 30px;
+    border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s;
+}
+.usp__item:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.usp__head { text-align: center; margin-bottom: 20px; border-bottom: 2px solid var(--color-bg-sub); padding-bottom: 20px; }
+.usp__number {
+    display: block; font-size: 3rem; font-weight: bold; color: var(--color-accent);
+    line-height: 1; margin-bottom: 10px; font-family: serif;
+}
+.usp__title { font-size: 1.2rem; margin: 0; color: var(--color-primary); }
+.usp__title strong { font-size: 1.4rem; background: linear-gradient(transparent 70%, #fceebb 70%); }
+.usp__desc { font-size: 0.95rem; text-align: justify; color: #555; }
+@media (max-width: 767px) { .usp__list { flex-direction: column; } .usp__item { margin-bottom: 20px; } }
+
+/* =========================================
+   6. 制作の流れ（Flow）
+   ========================================= */
+.flow__list { max-width: 800px; margin: 0 auto; }
+.flow__item {
+    background: #fff; padding: 30px; margin-bottom: 20px; border-radius: 8px;
+    position: relative; border-left: 6px solid #ddd;
+}
+.flow__item--highlight { border-left-color: var(--color-accent); background-color: #fffaf0; }
+.flow__step { font-size: 0.9rem; font-weight: bold; color: #999; margin-bottom: 5px; }
+.flow__item--highlight .flow__step { color: var(--color-accent); }
+.flow__title { margin: 0 0 10px 0; font-size: 1.2rem; color: var(--color-primary); }
+
+/* =========================================
+   7. 料金プラン（Price）
+   ========================================= */
+.price__list { display: flex; justify-content: center; align-items: flex-end; gap: 20px; }
+.price__item {
+    background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 40px 20px;
+    width: 30%; text-align: center; position: relative;
+}
+.price__item--rec {
+    border: 2px solid var(--color-accent); transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 2;
+}
+.price__badge {
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    background: var(--color-accent); color: #fff; padding: 5px 15px;
+    border-radius: 20px; font-weight: bold; font-size: 0.9rem;
+}
+.price__name { font-size: 1.2rem; margin-bottom: 5px; }
+.price__target { font-size: 0.8rem; color: #666; margin-bottom: 20px; }
+.price__value {
+    font-size: 2rem; font-weight: bold; color: var(--color-primary);
+    margin-bottom: 20px; font-family: serif;
+}
+.price__value span { font-size: 0.9rem; }
+.price__features {
+    list-style: none; padding: 0; text-align: left; font-size: 0.9rem;
+    border-top: 1px solid #eee; padding-top: 20px;
+}
+.price__features li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+.price__features li::before { content: "✔"; color: var(--color-accent); position: absolute; left: 0; }
+.price__features li.disabled { color: #ccc; }
+.price__features li.disabled::before { content: "-"; color: #ccc; }
+.price__note { text-align: center; font-size: 0.8rem; color: #666; margin-top: 40px; }
+@media (max-width: 767px) {
+    .price__list { flex-direction: column; align-items: center; }
+    .price__item { width: 100%; margin-bottom: 20px; }
+    .price__item--rec { transform: scale(1); }
+}
+
+/* =========================================
+   8. お問い合わせフォーム（センター寄せ版）
+   ========================================= */
+.contact__lead {
+    text-align: center; margin-bottom: 40px; font-size: 1rem; line-height: 1.8;
+}
+.contact__form {
+    max-width: 700px; margin: 0 auto; background: #fff; padding: 60px;
+    border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    text-align: center; /* ★全体をセンター寄せ */
+}
+.form-group { margin-bottom: 30px; }
+.form-group label {
+    display: block; margin-bottom: 10px; font-weight: bold; color: var(--color-primary);
+}
+.required {
+    background-color: #ff4d4d; color: #fff; font-size: 0.7rem; padding: 2px 6px;
+    border-radius: 4px; margin-left: 8px; vertical-align: middle;
+}
+input[type="text"], input[type="email"], select, textarea {
+    width: 100%; padding: 15px; font-size: 1rem; border: 2px solid #eee;
+    border-radius: 4px; background-color: #fdfdfd; transition: all 0.3s;
+    box-sizing: border-box; font-family: inherit;
+    text-align: center; /* ★入力文字もセンター寄せ */
+}
+input:focus, select:focus, textarea:focus {
+    outline: none; border-color: var(--color-accent); background-color: #fff;
+    box-shadow: 0 0 10px rgba(197, 165, 114, 0.2);
+}
+.select-wrap { position: relative; }
+.select-wrap::after {
+    content: "▼"; font-size: 0.8rem; color: #999; position: absolute;
+    right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;
+}
+.form-btn { text-align: center; margin-top: 40px; }
+.form-btn button { border: none; cursor: pointer; }
+@media (max-width: 767px) { .contact__form { padding: 30px 20px; } }
+
+/* =========================================
+   9. フッター
+   ========================================= */
+.footer {
+    background-color: var(--color-primary); color: #fff;
+    padding: 80px 0 20px; text-align: center;
+}
+.footer__title { font-size: 2rem; margin-bottom: 20px; line-height: 1.4; }
+.footer__lead { margin-bottom: 40px; font-size: 1.1rem; }
+.footer__info {
+    margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.6);
+}
+.footer__logo {
+    font-size: 1.2rem; font-weight: bold; color: #fff; margin-bottom: 10px; font-family: serif;
+}
+@media (max-width: 767px) { .footer__title { font-size: 1.5rem; } }
+
+/* =========================================
+   10. ハンバーガーメニュー
+   ========================================= */
+.hamburger {
+    display: none; border: none; background: transparent; cursor: pointer; z-index: 200;
+}
+@media (max-width: 767px) {
+    .hamburger { display: block; width: 30px; height: 24px; position: relative; }
+    .hamburger span {
+        display: block; width: 100%; height: 2px; background-color: var(--color-primary);
+        position: absolute; left: 0; transition: 0.3s;
+    }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 11px; }
+    .hamburger span:nth-child(3) { bottom: 0; }
+    .hamburger.active span:nth-child(1) { top: 11px; transform: rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { bottom: 11px; transform: rotate(-45deg); }
+
+    .header__nav {
+        display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background-color: rgba(26, 43, 76, 0.95); z-index: 150; opacity: 0;
+        visibility: hidden; transition: 0.3s; padding-top: 100px; text-align: center;
+    }
+    .header__nav.active { opacity: 1; visibility: visible; }
+    .header__nav ul { flex-direction: column; }
+    .header__nav li { margin: 0; margin-bottom: 30px; }
+    .header__nav a { font-size: 1.2rem; color: #fff; }
+}/* =========================================
+   共通設定
+   ========================================= */
+:root {
+    --color-primary: #1A2B4C;    /* ネイビー */
+    --color-accent: #C5A572;     /* シャンパンゴールド */
+    --color-base: #FFFFFF;       /* 白 */
+    --color-text-main: #333333;  /* 黒文字 */
+    --color-text-light: #FFFFFF; /* 白文字 */
+    --font-family-base: "Helvetica Neue", Arial, sans-serif;
+    --container-width: 1000px;
+    --header-height: 80px;
+}
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--color-text-main);
+    margin: 0;
+    padding-top: var(--header-height);
+}
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+.sp-only { display: none; }
+@media (max-width: 767px) { .sp-only { display: block; } }
+
+/* =========================================
+   共通パーツ：ボタン
+   ========================================= */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-align: center;
+    line-height: 1.4;
+}
+.btn--header {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+.btn--header:hover {
+    background-color: var(--color-accent);
+}
+.btn--main {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    padding: 16px 40px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(197, 165, 114, 0.4);
+}
+.btn--main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(197, 165, 114, 0.6);
+}
+.btn--large {
+    min-width: 300px;
+}
+
+/* =========================================
+   共通：セクションタイトルの装飾（金色の線）
+   ========================================= */
+.section-title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--color-primary);
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 20px;
+}
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.section-title span {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+}
+
+/* =========================================
+   1. ヘッダー
+   ========================================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+}
+.header__container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-family: serif;
+}
+.header__nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.header__nav li {
+    margin-left: 30px;
+}
+.header__nav a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+.header__nav a:hover {
+    color: var(--color-accent);
+}
+
+/* =========================================
+   2. ファーストビュー（FV）
+   ========================================= */
+.fv {
+    position: relative;
+    height: 600px;
+    min-height: 60vh;
+    background-image: url('party.png'); /* 画像ファイル名 */
+    background-size: cover;
+    background-position: center right;
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+}
+.fv__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(26, 43, 76, 0.8), rgba(26, 43, 76, 0.4));
+}
+.fv__container {
+    position: relative;
+    z-index: 2;
+}
+.fv__content {
+    max-width: 600px;
+}
+.fv__title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+.fv__lead {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 32px;
+    font-weight: 500;
+}
+.fv__lead strong {
+    color: var(--color-accent);
+    font-size: 1.2rem;
+}
+.fv__tags {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+}
+.fv__tags li {
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid var(--color-accent);
+    padding: 8px 16px;
+    margin-right: 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--color-accent);
+}
+@media (max-width: 767px) {
+    .header__nav { display: none; }
+    .header__logo { font-size: 1.2rem; }
+    .btn--header { padding: 8px 16px; font-size: 0.8rem; }
+    .fv { height: 600px; background-position: center; text-align: center; }
+    .fv__overlay { background: rgba(26, 43, 76, 0.6); }
+    .fv__content { margin: 0 auto; }
+    .fv__title { font-size: 2.2rem; }
+    .fv__lead { font-size: 1rem; text-align: left; display: inline-block; }
+    .fv__tags { justify-content: center; flex-wrap: wrap; }
+    .fv__tags li { margin-bottom: 8px; }
+    .btn--main { width: 100%; padding: 16px; }
+}
+
+/* =========================================
+   3. 導入・共感セクション
+   ========================================= */
+.section-padding { padding: 100px 0; }
+.intro { text-align: center; background-color: var(--color-base); }
+.intro__content p { font-size: 1.1rem; line-height: 2; margin-bottom: 30px; }
+.intro__message { font-size: 1.4rem; font-weight: bold; color: var(--color-primary); margin: 40px 0; }
+.intro__message strong { background: linear-gradient(transparent 70%, #fceebb 70%); padding: 0 4px; }
+.pc-only { display: block; }
+
+/* 導入セクションのデザイン（枠付き） */
+.intro .container {
+    background-color: #fff;
+    border: 2px solid #f0f0f0;
+    padding: 60px 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    max-width: 800px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+}
+@media (max-width: 767px) { .pc-only { display: none; } }
+
+/* =========================================
+   4. プロフィールセクション
+   ========================================= */
+.bg-sub { background-color: #F8F9FA; }
+.profile__grid { display: flex; align-items: center; gap: 60px; }
+.profile__img { flex: 1; max-width: 400px; }
+.profile__img img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.img-placeholder {
+    width: 100%; height: 400px; background-color: #ccc; display: flex;
+    justify-content: center; align-items: center; color: #666; font-weight: bold; border-radius: 8px;
+}
+.profile__text { flex: 1.5; }
+.profile__text h3 {
+    font-size: 1.5rem; color: var(--color-primary); margin-bottom: 30px; line-height: 1.5;
+    border-bottom: 2px solid var(--color-accent); padding-bottom: 20px;
+}
+.profile__text p { margin-bottom: 24px; text-align: justify; }
+@media (max-width: 767px) {
+    .section-padding { padding: 60px 0; }
+    .intro__message { font-size: 1.2rem; }
+    .profile__grid { flex-direction: column; gap: 30px; }
+    .profile__img { width: 100%; max-width: 100%; }
+    .img-placeholder { height: 300px; }
+    .profile__text h3 { font-size: 1.3rem; }
+}
+
+/* =========================================
+   5. 選ばれる3つの理由（USP）
+   ========================================= */
+.usp { background-color: var(--color-primary); color: #fff; } /* ネイビー背景 */
+.usp .section-title { color: #fff; }
+.usp__list { display: flex; justify-content: space-between; gap: 30px; margin-top: 60px; }
+.usp__item {
+    flex: 1; background-color: #fff; border: 1px solid #eee; padding: 30px;
+    border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s;
+}
+.usp__item:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.usp__head { text-align: center; margin-bottom: 20px; border-bottom: 2px solid var(--color-bg-sub); padding-bottom: 20px; }
+.usp__number {
+    display: block; font-size: 3rem; font-weight: bold; color: var(--color-accent);
+    line-height: 1; margin-bottom: 10px; font-family: serif;
+}
+.usp__title { font-size: 1.2rem; margin: 0; color: var(--color-primary); }
+.usp__title strong { font-size: 1.4rem; background: linear-gradient(transparent 70%, #fceebb 70%); }
+.usp__desc { font-size: 0.95rem; text-align: justify; color: #555; }
+@media (max-width: 767px) { .usp__list { flex-direction: column; } .usp__item { margin-bottom: 20px; } }
+
+/* =========================================
+   6. 制作の流れ（Flow）
+   ========================================= */
+.flow__list { max-width: 800px; margin: 0 auto; }
+.flow__item {
+    background: #fff; padding: 30px; margin-bottom: 20px; border-radius: 8px;
+    position: relative; border-left: 6px solid #ddd;
+}
+.flow__item--highlight { border-left-color: var(--color-accent); background-color: #fffaf0; }
+.flow__step { font-size: 0.9rem; font-weight: bold; color: #999; margin-bottom: 5px; }
+.flow__item--highlight .flow__step { color: var(--color-accent); }
+.flow__title { margin: 0 0 10px 0; font-size: 1.2rem; color: var(--color-primary); }
+
+/* =========================================
+   7. 料金プラン（Price）
+   ========================================= */
+.price__list { display: flex; justify-content: center; align-items: flex-end; gap: 20px; }
+.price__item {
+    background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 40px 20px;
+    width: 30%; text-align: center; position: relative;
+}
+.price__item--rec {
+    border: 2px solid var(--color-accent); transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 2;
+}
+.price__badge {
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    background: var(--color-accent); color: #fff; padding: 5px 15px;
+    border-radius: 20px; font-weight: bold; font-size: 0.9rem;
+}
+.price__name { font-size: 1.2rem; margin-bottom: 5px; }
+.price__target { font-size: 0.8rem; color: #666; margin-bottom: 20px; }
+.price__value {
+    font-size: 2rem; font-weight: bold; color: var(--color-primary);
+    margin-bottom: 20px; font-family: serif;
+}
+.price__value span { font-size: 0.9rem; }
+.price__features {
+    list-style: none; padding: 0; text-align: left; font-size: 0.9rem;
+    border-top: 1px solid #eee; padding-top: 20px;
+}
+.price__features li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+.price__features li::before { content: "✔"; color: var(--color-accent); position: absolute; left: 0; }
+.price__features li.disabled { color: #ccc; }
+.price__features li.disabled::before { content: "-"; color: #ccc; }
+.price__note { text-align: center; font-size: 0.8rem; color: #666; margin-top: 40px; }
+@media (max-width: 767px) {
+    .price__list { flex-direction: column; align-items: center; }
+    .price__item { width: 100%; margin-bottom: 20px; }
+    .price__item--rec { transform: scale(1); }
+}
+
+/* =========================================
+   8. お問い合わせフォーム（センター寄せ版）
+   ========================================= */
+.contact__lead {
+    text-align: center; margin-bottom: 40px; font-size: 1rem; line-height: 1.8;
+}
+.contact__form {
+    max-width: 700px; margin: 0 auto; background: #fff; padding: 60px;
+    border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    text-align: center; /* ★全体をセンター寄せ */
+}
+.form-group { margin-bottom: 30px; }
+.form-group label {
+    display: block; margin-bottom: 10px; font-weight: bold; color: var(--color-primary);
+}
+.required {
+    background-color: #ff4d4d; color: #fff; font-size: 0.7rem; padding: 2px 6px;
+    border-radius: 4px; margin-left: 8px; vertical-align: middle;
+}
+input[type="text"], input[type="email"], select, textarea {
+    width: 100%; padding: 15px; font-size: 1rem; border: 2px solid #eee;
+    border-radius: 4px; background-color: #fdfdfd; transition: all 0.3s;
+    box-sizing: border-box; font-family: inherit;
+    text-align: center; /* ★入力文字もセンター寄せ */
+}
+input:focus, select:focus, textarea:focus {
+    outline: none; border-color: var(--color-accent); background-color: #fff;
+    box-shadow: 0 0 10px rgba(197, 165, 114, 0.2);
+}
+.select-wrap { position: relative; }
+.select-wrap::after {
+    content: "▼"; font-size: 0.8rem; color: #999; position: absolute;
+    right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;
+}
+.form-btn { text-align: center; margin-top: 40px; }
+.form-btn button { border: none; cursor: pointer; }
+@media (max-width: 767px) { .contact__form { padding: 30px 20px; } }
+
+/* =========================================
+   9. フッター
+   ========================================= */
+.footer {
+    background-color: var(--color-primary); color: #fff;
+    padding: 80px 0 20px; text-align: center;
+}
+.footer__title { font-size: 2rem; margin-bottom: 20px; line-height: 1.4; }
+.footer__lead { margin-bottom: 40px; font-size: 1.1rem; }
+.footer__info {
+    margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px; font-size: 0.8rem; color: rgba(255,255,255,0.6);
+}
+.footer__logo {
+    font-size: 1.2rem; font-weight: bold; color: #fff; margin-bottom: 10px; font-family: serif;
+}
+@media (max-width: 767px) { .footer__title { font-size: 1.5rem; } }
+
+/* =========================================
+   10. ハンバーガーメニュー
+   ========================================= */
+.hamburger {
+    display: none; border: none; background: transparent; cursor: pointer; z-index: 200;
+}
+@media (max-width: 767px) {
+    .hamburger { display: block; width: 30px; height: 24px; position: relative; }
+    .hamburger span {
+        display: block; width: 100%; height: 2px; background-color: var(--color-primary);
+        position: absolute; left: 0; transition: 0.3s;
+    }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 11px; }
+    .hamburger span:nth-child(3) { bottom: 0; }
+    .hamburger.active span:nth-child(1) { top: 11px; transform: rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { bottom: 11px; transform: rotate(-45deg); }
+
+    .header__nav {
+        display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background-color: rgba(26, 43, 76, 0.95); z-index: 150; opacity: 0;
+        visibility: hidden; transition: 0.3s; padding-top: 100px; text-align: center;
+    }
+    .header__nav.active { opacity: 1; visibility: visible; }
+    .header__nav ul { flex-direction: column; }
+    .header__nav li { margin: 0; margin-bottom: 30px; }
+    .header__nav a { font-size: 1.2rem; color: #fff; }
+}
